@@ -1,0 +1,25 @@
+vector<int> nextPermutation(vector<int> &p, int n)
+{
+    int f,s;
+        int i;
+        for(i=n-2;i>=0;i--){
+            if(p[i]<p[i+1]){
+                f= i;
+                break;
+            }
+        }
+        if(i<0){
+            reverse(p.begin(),p.end());
+        }
+        else{
+            for(int i=n-1;i>=0;i--){
+                if(p[i]>p[f]){
+                    s=i;
+                    break;
+                }
+            }
+            swap(p[f],p[s]);
+            reverse(p.begin()+f+1,p.end());
+        }
+    return p;
+}
